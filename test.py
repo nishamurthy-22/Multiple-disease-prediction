@@ -11,7 +11,7 @@ import requests
 
 # diabetes_model = pickle.load(open('C:\\Users\\nisha\\OneDrive\\Desktop\\projects\\Multiple diseases\\diabetes.sav','rb'))
 
-heart_disease_model = pickle.load(open(r'C:\Users\nisha\OneDrive\Desktop\projects\Multiple diseases\heartdisease.sav','rb'))
+heart_disease_model = pickle.load(open(r'C:\Users\nisha\OneDrive\Desktop\projects\Multiple diseases\heartdisease.pkl','rb'))
 
 # kidney_disease_model = pickle.load(open('C:\\Users\\nisha\\OneDrive\\Desktop\\projects\\Multiple diseases\\kidneydisease.sav','rb'))
 
