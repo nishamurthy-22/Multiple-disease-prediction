@@ -221,11 +221,7 @@ if (selected == 'Chronic Kidney Disease Prediction'):
                 diseases.append("ChronicKidneyDisease")
 
                     
-    '''with open("file.txt", "a") as f:
-        dis_bc = ""
-        for i in diseases:
-            dis_bc = dis_bc + i
-        f.write(name_enc + " " + dis_bs)'''        
+          
 
 
     if __name__== "__main__" :
