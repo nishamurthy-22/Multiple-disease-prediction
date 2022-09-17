@@ -6,6 +6,7 @@ import pandas as pd
 import pdfplumber
 import os
 import requests
+from linker import bigboi
 
 # loading the saved models
 
@@ -25,10 +26,14 @@ with st.sidebar:
                           ['Diabetes Prediction',
                            'Heart Disease Prediction',
                            'Chronic Kidney Disease Prediction'],
-                          icons=['activity','heart','person'],
+                          icons=['activity','heart','person','envelope'],
                           default_index=0)
     
-    
+
+name1 = ""
+name2 = ""
+diseases = []
+
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
     
@@ -80,9 +85,10 @@ if (selected == 'Diabetes Prediction'):
             pred=model.predict([val])
             print(pred[0][0])
             if pred[0][0] > 0.5 :
-                st.error("Person is Diabetic")
+                st.error("The Person is Diabetic")
+                diseases.append("Diabetic")
             else:
-                st.success("Person is non-diabetic")
+                st.success("The Person is non-diabetic")
             
 
 
@@ -144,7 +150,8 @@ if (selected == 'Heart Disease Prediction'):
         heart_prediction = heart_disease_model.predict([val])                          
         
         if (heart_prediction[0] == 1):
-            st.error("The person is having heart disease")
+            st.error("The person has heart disease")
+            diseases.append("HeartDisease")
         #   heart_diagnosis = 'The person is having heart disease'
         else:
         #   heart_diagnosis = 'The person does not have any heart disease'
@@ -163,7 +170,7 @@ if (selected == 'Chronic Kidney Disease Prediction'):
     
     
         st.title('Prediction')
-
+        name = ""
         invoice_pdf = st.file_uploader("Choose a file",type='pdf')
         if invoice_pdf is not None:
         
@@ -181,6 +188,10 @@ if (selected == 'Chronic Kidney Disease Prediction'):
                 lines.append(lines2[i])
 
             def ocr(lines, columns):
+                x = lines[4].split()
+                name = x[1] + x[2]
+                print(type(name1))
+                print(type(name2))
                 value = []
                 for j in columns:
                     for i in lines[8:]:
@@ -203,14 +214,22 @@ if (selected == 'Chronic Kidney Disease Prediction'):
             pred=model.predict([val])
             # print(pred[0][0])
             if pred[0][0] == 1 :
-                st.success("Congratulations you are safe from Chronic Kidney Disease!!")
+                st.success("The person does not have any kidney disorder")
                 
             else:
-                st.error("I am sorry to inform you, you suffer from chronic Kidney Disease. Please contact your family doctor immediately and acquire some medications. Get well soon!")
-                
-            
+                st.error("The person has kidney disorder")
+                diseases.append("ChronicKidneyDisease")
+
+                    
+    '''with open("file.txt", "a") as f:
+        dis_bc = ""
+        for i in diseases:
+            dis_bc = dis_bc + i
+        f.write(name_enc + " " + dis_bs)'''        
 
 
     if __name__== "__main__" :
         model= load_model("ckdmodel.h5")
-        main()    
+        name = ""
+        main()
+        # bigboi(name)
