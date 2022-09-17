@@ -1,0 +1,2 @@
+# Multiple-disease-prediction
+We, Team Break A Leg, participated in the Weal Club at PESU Hackathon Healthack. The problem statement we chose to tackle was "Analysis, Diagnosis and Enryption of Blood Work Using Machine Learning and Block Chain". Why choose this problem statement, according to the statistics the society is moving towards home based medical testing systems. As a normal person the first step we would take is to approach the doctor to diagnose your blood report, and this odctor would charge some amount for the consultation.
