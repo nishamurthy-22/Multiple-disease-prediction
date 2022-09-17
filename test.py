@@ -6,7 +6,7 @@ import pandas as pd
 import pdfplumber
 import os
 import requests
-from linker import bigboi
+# from linker import bigboi
 
 # loading the saved models
 
